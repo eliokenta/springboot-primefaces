@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title><h:outputText value="Hello World!"/></title>
+</h:head>
+<h:body>
+<h:form>
+    <h:panelGrid id="theGrid" columns="2">
+        <h:outputText value="First Name"/>
+        <p:inputText  id="firstName" binding="#{firstName}" required="true" requiredMessage="This value is required"
+                     value="#{registration.firstName}"/>
+        <h:message for="firstName" style="color:red;"/>
+        <br/>
+        <h:outputText value="Last Name"/>
+        <p:inputText id="lastName" binding="#{lastName}" required="true" requiredMessage="This value is required"
+                     value="#{registration.lastName}"/>
+        <h:message for="lastName" style="color:red;"/>
+        <br/>
+        <p:commandButton value="Save" action="#{registration.createNewUser}"
+                         update="operationMessage"/>
+        <p:outputLabel id="operationMessage" value="#{registration.operationMessage}" style="color:green;"/>
+    </h:panelGrid>
+</h:form>
+</h:body>
+</html>
+
